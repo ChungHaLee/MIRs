@@ -37,7 +37,7 @@ if __name__ == "__main__":
     titles = melon['title']
     singers = melon['singer']
     
-    input_string = "가을방학 감성 발라드"
+    input_string = "마음이 편안해지는 감성 발라드"
     
     # Remove '음악' or '노래' from the input_string
     input_string = input_string.replace('음악', '').replace('노래', '')
