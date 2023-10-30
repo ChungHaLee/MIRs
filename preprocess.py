@@ -37,11 +37,16 @@ if __name__ == "__main__":
     titles = melon['title']
     singers = melon['singer']
     
-    input_string = "레드벨벳 노래"
+    input_string = "가을방학 감성 발라드"
+    
+    # Remove '음악' or '노래' from the input_string
+    input_string = input_string.replace('음악', '').replace('노래', '')
     
     tokenized_input = tokenize_input_string(input_string)
     
-    singer_names_in_input = list(set([singer for singer in singers if singer in input_string]))
+    # Identify singers in the input_string with partial matching
+    singer_names_in_input = [singer for singer in singers if singer in input_string]
+    
     if singer_names_in_input:
         print(f"Singers identified in the input string: {', '.join(singer_names_in_input)}")
         # Filter and print results matching the singer's name
@@ -53,7 +58,7 @@ if __name__ == "__main__":
         if filtered_similarities:
             sorted_similarities = sorted(filtered_similarities, key=lambda x: x[3], reverse=True)[:3]
             for i, (answer, title, singer, similarity) in enumerate(sorted_similarities):
-                print(f"Top {i+1} - Title: {title}, Singer: {singer}, Answer: {answer}, Similarity: {similarity}")
+                print(f"Top {i+1} - Title: {title}, Singer: {singer}, Similarity: {similarity}")
         else:
             print("No similar answers found above the similarity threshold for the identified singer.")
     else:
@@ -66,6 +71,6 @@ if __name__ == "__main__":
         if filtered_similarities:
             sorted_similarities = sorted(filtered_similarities, key=lambda x: x[3], reverse=True)[:3]
             for i, (answer, title, singer, similarity) in enumerate(sorted_similarities):
-                print(f"Top {i+1} - Title: {title}, Singer: {singer}, Answer: {answer}, Similarity: {similarity}")
+                print(f"Top {i+1} - Title: {title}, Singer: {singer}, Similarity: {similarity}")
         else:
             print("No similar answers found above the similarity threshold.")
