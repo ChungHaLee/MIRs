@@ -39,7 +39,8 @@ if __name__ == "__main__":
     answer_strings = melon['words'].astype(str)
     titles = melon['title']
     singers = melon['singer']
-    
+
+    # 이 부분이 검색하는 텍스트 입니다!
     input_string = "시티팝 노래"
     
     # Remove '음악' or '노래' from the input_string
