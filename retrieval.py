@@ -34,7 +34,7 @@ def tokenize_input_string(input_string):
 if __name__ == "__main__":
     melon = read_melon_data('./static/data/melondata_edited.csv')
 
-    musicdict = read_music_dict('./static/data/musicdict.csv')
+    # musicdict = read_music_dict('./static/data/musicdict.csv')
     
     answer_strings = melon['words'].astype(str)
     titles = melon['title']
